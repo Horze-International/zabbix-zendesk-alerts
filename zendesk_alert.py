@@ -15,8 +15,7 @@ message = sys.argv[3]
 zp_client = zp.Zenpy(**c.zendesk_instances[zendesk_instance])
 
 if action == 'create_ticket':
-	ticket = zp.lib.api_objects.Ticket(description=message)
-	ticket.tags.extend(['created_from_zabbix'])
+	ticket = zp.lib.api_objects.Ticket(subject=message, description=message, requester=zp.lib.api_objects.User(name='Zabbix'))
 	zp_client.tickets.create(ticket)
 else:
 	print('Error: Unknown action: ' + action)
