@@ -19,3 +19,4 @@ if action == 'create_ticket':
 	zp_client.tickets.create(ticket)
 else:
 	print('Error: Unknown action: ' + action)
+	exit(-1)
