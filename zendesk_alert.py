@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 import conf as c
 import zenpy as zp
 import sys
