@@ -17,6 +17,10 @@ zp_client = zp.Zenpy(**c.zendesk_instances[zendesk_instance])
 if action == 'create_ticket':
 	ticket = zp.lib.api_objects.Ticket(subject=message, description=message, requester=zp.lib.api_objects.User(name='Zabbix'))
 	zp_client.tickets.create(ticket)
+elif action == 'solve_ticket':
+	for ticket in zp_client.search(type='ticket',status_less_than='solved',subject=message):
+		ticket.status = 'solved'
+		zp_client.tickets.update(ticket)
 else:
 	print('Error: Unknown action: ' + action)
 	exit(-1)
