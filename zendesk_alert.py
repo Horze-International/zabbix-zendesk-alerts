@@ -31,6 +31,8 @@ if 'event_name' not in zabbix_body.keys():
 	print('Error: event_name missing from JSON object')
 	exit(-1)
 
+zp_client = zp.Zenpy(**c.configurations[zendesk_subdomain]['zendesk_instance'])
+
 if action == 'create_ticket':
 	ticket_body = {}
 	ticket_body['tags'] = ['Zabbix']
@@ -43,8 +45,6 @@ if action == 'create_ticket':
 
 	if 'host_name' in zabbix_body.keys():
 		ticket_body['tags'].append(zabbix_body['host_name'])
-
-	zp_client = zp.Zenpy(**c.configurations[zendesk_subdomain]['zendesk_instance'])
 
 	ticket_body['requester'] = zp_client.users(id=int(c.configurations[zendesk_subdomain]['zabbix_user_id']))
 
