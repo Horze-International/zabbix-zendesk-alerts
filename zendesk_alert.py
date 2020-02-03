@@ -1,4 +1,4 @@
-#!/usr/local/bin/python3
+#!python3
 import json
 import conf as c
 import zenpy as zp
