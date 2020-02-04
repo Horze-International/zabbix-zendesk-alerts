@@ -47,3 +47,16 @@ In the Operations section, click New.
 Remember to click Add to actually add it.
 
 Under the Recovery operations, it's identical as Operations, except the subject should be solve_ticket.
+
+## Zendesk
+### User
+Create a new user in Zendesk called Zabbix. Find the user ID.
+
+### API token
+Create a new API token in Zendesk.
+
+## Zabbix server
+Copy the conf.sample.py file to conf.py, replace the two your_zendesk_subdomain fields with your actual Zendesk subdomain. Replace the rest of the example values with real values, like API token, Zabbix user ID and your email.
+Now put the conf.py and zendesk_alert.py scripts in the alertscripts folder on the server where Zabbix is running. Where that is depends on your Zabbix installation. If it's a Linux server, make sure it's executable as well.
+
+Make a test trigger to see if it works.
