@@ -29,18 +29,20 @@ Create a new action with the following values:
 **Name:** Create Zendesk ticket (your_zendesk_subdomain)
 
 Under the Operations tab:  
-**Default subject:** create_ticket
-**Default message:**
-{
-  "event_name": "{EVENT.NAME}",
-  "event_severity": "{EVENT.SEVERITY}",
-  "host_name": "{HOST.NAME}"
+**Default subject:** create_ticket  
+**Default message:**  
+```
+{  
+    "event_name": "{EVENT.NAME}",  
+    "event_severity": "{EVENT.SEVERITY}",  
+    "host_name": "{HOST.NAME}"  
 }
+```
 
 In the Operations section, click New.  
 **Operation type:** Send message  
-**Send to users:** Zendesk (your_zendesk_subdomain)
-**Send only to:** Zendesk
+**Send to users:** Zendesk (your_zendesk_subdomain)  
+**Send only to:** Zendesk  
 
 Remember to click Add to actually add it.
 
